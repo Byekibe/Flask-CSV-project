@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %} {% import "bootstrap/wtf.html" as wtf %} {%
+block title %}Add A New Cafe{% endblock %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h1>Add a new cafe into the database</h1>
+
+      <!-- This is where your WTForm will go -->
+      <form action="{{url_for('add_cafe')}}" method="POST" novalidate>
+        {{ form.csrf_token }}
+
+        <p>{{ wtf.quick_form(form, novalidate=True) }}</p>
+      </form>
+
+      <p class="space-above"><a href="#">See all cafes</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
